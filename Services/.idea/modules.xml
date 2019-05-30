@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Basket/Basket.iml" filepath="$PROJECT_DIR$/Basket/Basket.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eshop.iml" filepath="$PROJECT_DIR$/eshop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../buildingblocks/eventbus/eventbus.iml" filepath="$PROJECT_DIR$/../buildingblocks/eventbus/eventbus.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Ordering/ordering.iml" filepath="$PROJECT_DIR$/Ordering/ordering.iml" />
+    </modules>
+  </component>
+</project>

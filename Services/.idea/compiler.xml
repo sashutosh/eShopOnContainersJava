@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="Basket" />
+        <module name="eventbus" />
+        <module name="ordering" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Basket" target="1.8" />
+      <module name="eshop" target="1.8" />
+      <module name="eventbus" target="1.8" />
+      <module name="ordering" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Basket" options="-parameters" />
+      <module name="eventbus" options="-parameters" />
+      <module name="ordering" options="-parameters" />
+    </option>
+  </component>
+</project>

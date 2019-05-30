@@ -1,0 +1,12 @@
+com\sashutosh\microservice\ordering\model\Order.class
+com\sashutosh\microservice\ordering\commands\IRequest.class
+com\sashutosh\microservice\ordering\api\OrdersController.class
+com\sashutosh\microservice\ordering\Application.class
+com\sashutosh\microservice\ordering\config\OrderConfig.class
+com\sashutosh\microservice\ordering\model\OrderRepository.class
+com\sashutosh\microservice\ordering\commands\IdentifiedCommand.class
+com\sashutosh\microservice\ordering\model\OrderItem.class
+com\sashutosh\microservice\ordering\commands\ShipOrderCommand.class
+com\sashutosh\microservice\ordering\IMediator.class
+com\sashutosh\microservice\ordering\model\IOrderRepository.class
+com\sashutosh\microservice\ordering\commands\CancelOrderCommand.class

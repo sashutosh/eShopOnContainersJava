@@ -1,0 +1,12 @@
+D:\Code-Kata\eShopOnContainersJava\Services\Ordering\src\main\java\com\sashutosh\microservice\ordering\IMediator.java
+D:\Code-Kata\eShopOnContainersJava\Services\Ordering\src\main\java\com\sashutosh\microservice\ordering\config\OrderConfig.java
+D:\Code-Kata\eShopOnContainersJava\Services\Ordering\src\main\java\com\sashutosh\microservice\ordering\commands\IRequest.java
+D:\Code-Kata\eShopOnContainersJava\Services\Ordering\src\main\java\com\sashutosh\microservice\ordering\model\IOrderRepository.java
+D:\Code-Kata\eShopOnContainersJava\Services\Ordering\src\main\java\com\sashutosh\microservice\ordering\commands\IdentifiedCommand.java
+D:\Code-Kata\eShopOnContainersJava\Services\Ordering\src\main\java\com\sashutosh\microservice\ordering\model\Order.java
+D:\Code-Kata\eShopOnContainersJava\Services\Ordering\src\main\java\com\sashutosh\microservice\ordering\api\OrdersController.java
+D:\Code-Kata\eShopOnContainersJava\Services\Ordering\src\main\java\com\sashutosh\microservice\ordering\model\OrderItem.java
+D:\Code-Kata\eShopOnContainersJava\Services\Ordering\src\main\java\com\sashutosh\microservice\ordering\commands\CancelOrderCommand.java
+D:\Code-Kata\eShopOnContainersJava\Services\Ordering\src\main\java\com\sashutosh\microservice\ordering\Application.java
+D:\Code-Kata\eShopOnContainersJava\Services\Ordering\src\main\java\com\sashutosh\microservice\ordering\commands\ShipOrderCommand.java
+D:\Code-Kata\eShopOnContainersJava\Services\Ordering\src\main\java\com\sashutosh\microservice\ordering\model\OrderRepository.java

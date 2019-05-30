@@ -1,0 +1,5 @@
+com\sashutosh\microservice\basket\BasketRestControllerTest.class
+com\sashutosh\microservice\basket\BasketControllerIntegrationTest.class
+com\sashutosh\microservice\basket\BasketControllerTest.class
+com\sashutosh\microservice\basket\GreetingControllerTests.class
+com\sashutosh\microservice\basket\SpringBasketControllerTest.class
