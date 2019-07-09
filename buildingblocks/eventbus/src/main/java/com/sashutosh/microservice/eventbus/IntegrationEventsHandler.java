@@ -1,4 +1,7 @@
 package com.sashutosh.microservice.eventbus;
 
-public class IntegrationEventsHandler {
+public interface IntegrationEventsHandler<T extends IntegrationEvent> {
+
+    void handle(T e);
+
 }

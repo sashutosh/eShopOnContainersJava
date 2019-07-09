@@ -1,7 +1,7 @@
 package com.sashutosh.microservice.ordering.domain;
 
 import com.sashutosh.microservice.eventbus.IEventBus;
-import com.sashutosh.microservice.ordering.integration.OrderStatusChangedToCancelledIntegrationEvent;
+import com.sashutosh.microservice.ordering.integration.events.OrderStatusChangedToCancelledIntegrationEvent;
 import com.sashutosh.microservice.ordering.model.Order;
 import com.sashutosh.microservice.ordering.model.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,0 +1,6 @@
+com\sashutosh\microservice\eventbus\config\KafkaProducerConfig.class
+com\sashutosh\microservice\eventbus\IEventBus.class
+com\sashutosh\microservice\eventbus\config\KafkaConsumerConfig.class
+com\sashutosh\microservice\eventbus\IntegrationEventsHandler.class
+com\sashutosh\microservice\eventbus\IntegrationEvent.class
+com\sashutosh\microservice\eventbus\KafkaEventBus.class

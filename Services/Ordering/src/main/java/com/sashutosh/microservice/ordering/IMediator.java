@@ -13,6 +13,7 @@ public class IMediator {
     public void build()
     {
         cmdHandler.put(CancelOrderCommand.class.getName(), Collections.singletonList(new CancelOrderCommandHandler()));
+        cmdHandler.put(CreateOrderDraftCommand.class.getName(),Collections.singletonList(new CreateOrderDraftCommandHandler()));
 
     }
     public boolean send(IRequest cmd)

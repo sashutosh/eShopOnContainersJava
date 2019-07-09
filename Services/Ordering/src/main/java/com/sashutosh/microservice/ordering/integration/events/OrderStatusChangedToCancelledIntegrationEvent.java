@@ -1,4 +1,4 @@
-package com.sashutosh.microservice.ordering.integration;
+package com.sashutosh.microservice.ordering.integration.events;
 
 import com.sashutosh.microservice.eventbus.IntegrationEvent;
 

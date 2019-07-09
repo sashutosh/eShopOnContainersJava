@@ -1,15 +1,11 @@
-package com.sashutosh.microservice.basket.model;
+package com.sashutosh.microservice.ordering.commands;
 
-import org.springframework.data.redis.core.RedisHash;
-
-import javax.annotation.sql.DataSourceDefinition;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CustomerBasket {
-    String buyerID;
-    List<BasketItem> items;
+    public String buyerID;
+    public List<BasketItem> items;
 
     public CustomerBasket(String customerId) {
 

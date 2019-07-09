@@ -2,6 +2,7 @@ package com.sashutosh.microservice.ordering.model;
 
 
 
+import com.sashutosh.microservice.ordering.domain.OrderShippedDomainEvent;
 import com.sashutosh.microservice.ordering.domain.INotification;
 import com.sashutosh.microservice.ordering.domain.OrderCancelledDomainEvent;
 import com.sashutosh.microservice.ordering.exception.StatusChangeException;
@@ -10,6 +11,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name="orders")
@@ -40,6 +42,12 @@ public class Order {
 
     @Transient
     List<INotification> events= new ArrayList<>();
+
+    public static Order newDraftOrder() {
+        Order order = new Order();
+        order.isDraft=true;
+        return order;
+    }
 
     public OrderStatus getOrderStatusId() {
         return orderStatusId;
@@ -165,8 +173,36 @@ public class Order {
 
     }
 
-    private void addNewDomainEvent(OrderCancelledDomainEvent orderCancelledDomainEvent)
+    public void setShippedStatus() throws StatusChangeException
     {
-        events.add(orderCancelledDomainEvent);
+        if(orderStatusId != OrderStatus.Paid){
+
+            throw new StatusChangeException(this);
+        }
+        this.orderStatusId=OrderStatus.Shipped;
+        addNewDomainEvent(new OrderShippedDomainEvent(this));
+
     }
+
+    private void addNewDomainEvent(INotification domainEvent)
+    {
+        events.add(domainEvent);
+    }
+
+    public void addOrderItem(int productId, String productName, float unitPrice, float discount, int quantity, String pictureUrl) {
+
+        OrderItem existingProduct= (OrderItem) orderItems.stream().filter(orderItem -> orderItem.getItemId()== productId).collect(Collectors.toList());
+        if(existingProduct!=null){
+                if(discount > existingProduct.getDiscount()){
+                    existingProduct.setDiscount(discount);
+                }
+        }
+        else {
+
+            OrderItem orderItem = new OrderItem(productId,productName,quantity,unitPrice,discount,pictureUrl);
+            this.orderItems.add(orderItem);
+        }
+    }
+
+
 }

@@ -2,8 +2,10 @@ package com.sashutosh.microservice.ordering.api;
 
 import com.sashutosh.microservice.ordering.IMediator;
 import com.sashutosh.microservice.ordering.commands.CancelOrderCommand;
+import com.sashutosh.microservice.ordering.commands.CreateOrderDraftCommand;
 import com.sashutosh.microservice.ordering.commands.IdentifiedCommand;
 import com.sashutosh.microservice.ordering.commands.ShipOrderCommand;
+import com.sashutosh.microservice.ordering.model.CardType;
 import com.sashutosh.microservice.ordering.model.Order;
 import com.sashutosh.microservice.ordering.model.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,6 +78,20 @@ public class OrdersController {
     {
         List<Order> order= orderRepository.findAll();
         return order;
+    }
+
+    @GetMapping("/{cardtypes}")
+    public List<CardType> getCardTypes(@PathVariable(value="orderId")int orderId)
+    {
+        List<CardType> cardTypes= orderRepository.getCardTypes();
+        return cardTypes;
+    }
+
+    @PostMapping("/draft")
+    public ResponseEntity<?> getOrderDraftFromBasketData(@RequestBody CreateOrderDraftCommand createOrderDraftCommand)
+    {
+        boolean cmdResult= mediator.send(createOrderDraftCommand);
+        return cmdResult ?  new ResponseEntity<>(HttpStatus.OK) : new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
 

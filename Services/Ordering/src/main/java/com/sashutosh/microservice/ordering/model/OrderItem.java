@@ -15,12 +15,22 @@ public class OrderItem {
 
     double unitPrice;
 
+    float discount;
+
     String pictureUrl;
 
     @ManyToOne
     @JoinColumn(name="id", nullable=false)
     Order order;
 
+    public OrderItem(int itemId, String productName, int units, double unitPrice, float discount, String pictureUrl) {
+        this.itemId = itemId;
+        this.productName = productName;
+        this.units = units;
+        this.unitPrice = unitPrice;
+        this.discount = discount;
+        this.pictureUrl = pictureUrl;
+    }
 
     public int getItemId() {
         return itemId;
@@ -56,5 +66,13 @@ public class OrderItem {
 
     public void setPictureUrl(String pictureUrl) {
         this.pictureUrl = pictureUrl;
+    }
+
+    public float getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(float discount) {
+        this.discount = discount;
     }
 }
