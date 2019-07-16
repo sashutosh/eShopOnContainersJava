@@ -1,5 +1,6 @@
 package com.sashutosh.microservice.ordering.commands;
 
+import com.sashutosh.microservice.ordering.integration.model.BasketItem;
 import com.sashutosh.microservice.ordering.model.Order;
 
 public class CreateOrderDraftCommandHandler implements IRequestHandler<CreateOrderDraftCommand, OrderDraft>{

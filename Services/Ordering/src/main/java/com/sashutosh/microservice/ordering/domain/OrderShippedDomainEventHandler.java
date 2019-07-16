@@ -31,7 +31,7 @@ public class OrderShippedDomainEventHandler implements INotificationHandler<Orde
             Order currentOrder= order.get();
             int buyerId = currentOrder.getBuyerId();
             String buyerIdString = Integer.toString(buyerId);
-            Buyer buyer = buyerRepository.findById(buyerIdString).get();
+            Buyer buyer = buyerRepository.findById(buyerIdString).orElse(null);
             OrderStatusChangedToShippedIntegrationEvent orderStatusChangedToShippedIntegrationEvent= new OrderStatusChangedToShippedIntegrationEvent(currentOrder.getId(),currentOrder.getOrderStatusId(),buyer.getName());
             eventBus.publish(orderStatusChangedToShippedIntegrationEvent);
 

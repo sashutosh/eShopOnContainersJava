@@ -43,7 +43,7 @@ public class OrderIntegrationTest {
         orderRepository.save(order1);
 
         Optional<Order> order = orderRepository.findById(1);
-        Assert.assertNotNull(order.get());
+        Assert.assertNotNull(order.orElse(null));
 
     }
 
@@ -53,7 +53,7 @@ public class OrderIntegrationTest {
         order1.setCountry("IN");
         order1.setDescription("test");
         order1.setTotal(100);
-        OrderItem item1= new OrderItem();
+        OrderItem item1= new OrderItem(1,"product1",1,10,0,"");
         item1.setProductName("test1");
         //item1.se
         order1.getOrderItems().add(item1);

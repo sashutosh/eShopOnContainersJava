@@ -5,6 +5,7 @@ package com.sashutosh.microservice.ordering.model;
 import com.sashutosh.microservice.ordering.domain.OrderShippedDomainEvent;
 import com.sashutosh.microservice.ordering.domain.INotification;
 import com.sashutosh.microservice.ordering.domain.OrderCancelledDomainEvent;
+import com.sashutosh.microservice.ordering.domain.OrderStartedDomainEvent;
 import com.sashutosh.microservice.ordering.exception.StatusChangeException;
 
 import javax.persistence.*;
@@ -40,8 +41,35 @@ public class Order {
 
     OrderStatus orderStatusId;
 
+    Address address;
+
     @Transient
     List<INotification> events= new ArrayList<>();
+
+    public Order(String userId, String userName, Address address, int cardTypeId, String cardNumber, String cardSecurityNumber, String cardHolderName, Date cardExpiration,
+                 Integer buyerId ,Integer paymentMethodId)
+    {
+        this.buyerId=buyerId;
+        this.paymentMethodId=paymentMethodId;
+        this.orderStatusId= OrderStatus.Submitted;
+        this.orderDate= new Date();
+        this.address=address;
+        addOrderStartedDomainEvent(userId,userName,cardTypeId,cardNumber,cardSecurityNumber,cardHolderName,cardExpiration);
+
+    }
+
+    private void addOrderStartedDomainEvent(String userId, String userName, int cardTypeId, String cardNumber, String cardSecurityNumber, String cardHolderName, Date cardExpiration) {
+
+        OrderStartedDomainEvent orderStartedDomainEvent = new OrderStartedDomainEvent(this,userId,userName,cardTypeId,cardNumber,
+                                                    cardSecurityNumber,cardHolderName,cardExpiration);
+        this.addNewDomainEvent(orderStartedDomainEvent);
+    }
+
+    public Order() {
+        orderItems= new ArrayList();
+        isDraft=false;
+    }
+
 
     public static Order newDraftOrder() {
         Order order = new Order();
@@ -192,15 +220,8 @@ public class Order {
     public void addOrderItem(int productId, String productName, float unitPrice, float discount, int quantity, String pictureUrl) {
 
         OrderItem existingProduct= (OrderItem) orderItems.stream().filter(orderItem -> orderItem.getItemId()== productId).collect(Collectors.toList());
-        if(existingProduct!=null){
-                if(discount > existingProduct.getDiscount()){
-                    existingProduct.setDiscount(discount);
-                }
-        }
-        else {
-
-            OrderItem orderItem = new OrderItem(productId,productName,quantity,unitPrice,discount,pictureUrl);
-            this.orderItems.add(orderItem);
+        if(discount > existingProduct.getDiscount()){
+            existingProduct.setDiscount(discount);
         }
     }
 

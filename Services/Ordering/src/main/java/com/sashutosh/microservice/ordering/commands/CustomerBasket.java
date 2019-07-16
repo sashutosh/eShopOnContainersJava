@@ -1,5 +1,7 @@
 package com.sashutosh.microservice.ordering.commands;
 
+import com.sashutosh.microservice.ordering.integration.model.BasketItem;
+
 import java.util.ArrayList;
 import java.util.List;
 

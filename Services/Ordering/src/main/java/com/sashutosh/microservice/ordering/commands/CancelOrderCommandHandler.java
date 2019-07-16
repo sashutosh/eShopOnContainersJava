@@ -16,22 +16,18 @@ public class CancelOrderCommandHandler implements IRequestHandler<CancelOrderCom
     public Boolean handle(CancelOrderCommand cmd)
     {
         Optional<Order> order= orderRepository.findById(cmd.getOrderNumber());
-
-        Order currentOrder = order.get();
-
-        if(currentOrder==null){
-            return false;
+        if(order.isPresent()) {
+            Order currentOrder= order.get();
+            try {
+                currentOrder.setCancelledStatus();
+            } catch (StatusChangeException e) {
+                e.printStackTrace();
+            }
+            orderRepository.save(currentOrder);
+            return true;
         }
+        return false;
 
-        try {
-            currentOrder.setCancelledStatus();
-        } catch (StatusChangeException e) {
-            e.printStackTrace();
-        }
-
-        orderRepository.save(currentOrder);
-
-        return true;
 
     }
 }

@@ -1,5 +1,7 @@
 package com.sashutosh.microservice.ordering.commands;
 
+import com.sashutosh.microservice.ordering.integration.model.BasketItem;
+
 import java.util.List;
 
 public class CreateOrderDraftCommand implements IRequest<OrderDraft> {

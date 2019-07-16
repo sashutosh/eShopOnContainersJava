@@ -12,6 +12,7 @@
         <groupId>com.sashutosh.microservice</groupId>
         <artifactId>services</artifactId>
         <version>0.1.0</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <properties>

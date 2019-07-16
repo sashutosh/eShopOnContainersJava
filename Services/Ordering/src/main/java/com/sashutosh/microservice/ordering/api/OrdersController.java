@@ -70,7 +70,7 @@ public class OrdersController {
     public Order getOrder(@PathVariable(value="orderId")int orderId)
     {
         Optional<Order> order= orderRepository.findById(orderId);
-        return order.get();
+        return order.orElse(null);
     }
 
     @GetMapping("/")

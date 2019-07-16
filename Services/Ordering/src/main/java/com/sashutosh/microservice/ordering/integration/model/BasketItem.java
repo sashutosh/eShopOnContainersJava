@@ -1,5 +1,7 @@
 package com.sashutosh.microservice.ordering.integration.model;
 
+import com.sashutosh.microservice.ordering.commands.OrderItemDTO;
+
 public class BasketItem {
     String id;
     String productId;
@@ -63,5 +65,13 @@ public class BasketItem {
 
     public void setPictureUrl(String pictureUrl) {
         this.pictureUrl = pictureUrl;
+    }
+
+    public static OrderItemDTO toOrderItemDTO(BasketItem item){
+
+        int itemId = Integer.parseInt(item.id);
+        OrderItemDTO orderItemDTO = new OrderItemDTO(itemId,item.getProductName(),item.getUnitPrice(),item.getQuantity(),item.getPictureUrl());
+        return orderItemDTO;
+
     }
 }
