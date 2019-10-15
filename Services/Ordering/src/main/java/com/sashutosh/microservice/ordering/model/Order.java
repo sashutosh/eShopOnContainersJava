@@ -198,7 +198,6 @@ public class Order {
         }
         this.orderStatusId=OrderStatus.Cancelled;
         addNewDomainEvent(new OrderCancelledDomainEvent(this));
-
     }
 
     public void setShippedStatus() throws StatusChangeException

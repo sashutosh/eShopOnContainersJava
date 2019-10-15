@@ -8,11 +8,17 @@
     <version>0.1.0</version>
     <name>ordering</name>
     <description>Ordering Microservice</description>
-    <parent>
+    <!--<parent>
         <groupId>com.sashutosh.microservice</groupId>
         <artifactId>services</artifactId>
         <version>0.1.0</version>
         <relativePath>../pom.xml</relativePath>
+    </parent>-->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.4.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <properties>
@@ -43,6 +49,11 @@
             <groupId>org.springframework.kafka</groupId>
             <artifactId>spring-kafka-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.sashutosh.microservice</groupId>
+            <artifactId>eventbus</artifactId>
+            <version>0.1.0</version>
         </dependency>
     </dependencies>
 
