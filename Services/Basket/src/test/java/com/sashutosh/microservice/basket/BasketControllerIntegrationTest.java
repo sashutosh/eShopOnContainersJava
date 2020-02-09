@@ -1,14 +1,9 @@
 package com.sashutosh.microservice.basket;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sashutosh.microservice.basket.model.BasketCheckout;
 import com.sashutosh.microservice.basket.model.BasketItem;
 import com.sashutosh.microservice.basket.model.CustomerBasket;
-import com.sashutosh.microservice.basket.model.IBasketRepository;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,13 +14,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import redis.clients.jedis.Jedis;
 
-import java.io.IOException;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
-import static org.assertj.core.internal.bytebuddy.matcher.ElementMatchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -158,8 +150,7 @@ public class BasketControllerIntegrationTest {
         item.unitPrice=100;
         item.id="ID1";
 
-        List<BasketItem> items= Collections.singletonList(item);
-        return items;
+        return Collections.singletonList(item);
     }
 
 

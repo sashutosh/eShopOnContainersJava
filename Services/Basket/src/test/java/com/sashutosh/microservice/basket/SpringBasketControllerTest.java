@@ -1,27 +1,7 @@
 package com.sashutosh.microservice.basket;
 
-import com.sashutosh.microservice.basket.model.BasketItem;
-import com.sashutosh.microservice.basket.model.CustomerBasket;
-import com.sashutosh.microservice.basket.model.IBasketRepository;
-import com.sashutosh.microservice.basket.model.RedisBasketRepository;
-import org.junit.*;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
-import org.mockito.internal.matchers.Any;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.context.TestConfiguration;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.context.annotation.Bean;
 import org.springframework.test.context.junit4.SpringRunner;
-import redis.clients.jedis.Jedis;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.mockito.ArgumentMatchers.any;
 
 
 @RunWith(SpringRunner.class)

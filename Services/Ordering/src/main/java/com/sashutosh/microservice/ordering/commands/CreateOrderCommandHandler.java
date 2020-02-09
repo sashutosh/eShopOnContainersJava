@@ -4,7 +4,6 @@ import com.sashutosh.microservice.eventbus.IEventBus;
 import com.sashutosh.microservice.ordering.integration.events.OrderStartedIntegrationEvent;
 import com.sashutosh.microservice.ordering.model.Address;
 import com.sashutosh.microservice.ordering.model.Order;
-import com.sashutosh.microservice.ordering.model.OrderItem;
 import com.sashutosh.microservice.ordering.model.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 

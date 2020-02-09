@@ -4,7 +4,7 @@ import com.sashutosh.microservice.eventbus.IntegrationEvent;
 
 public class OrderStartedIntegrationEvent extends IntegrationEvent {
 
-    String userId;
+    final String userId;
     public OrderStartedIntegrationEvent(String usrId)
     {
         this.userId=usrId;

@@ -3,8 +3,6 @@ package com.sashutosh.microservice.ordering;
 import org.junit.Assert;
 import org.junit.Test;
 
-import javax.print.attribute.standard.Media;
-
 public class MediatorTest {
 
     @Test

@@ -4,9 +4,11 @@ import com.sashutosh.microservice.ordering.exception.StatusChangeException;
 import com.sashutosh.microservice.ordering.model.Order;
 import com.sashutosh.microservice.ordering.model.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 
+@Component
 public class CancelOrderCommandHandler implements IRequestHandler<CancelOrderCommand, Boolean>{
 
     @Autowired

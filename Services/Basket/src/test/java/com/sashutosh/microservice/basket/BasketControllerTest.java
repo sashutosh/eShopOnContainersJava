@@ -2,9 +2,7 @@ package com.sashutosh.microservice.basket;
 
 import com.sashutosh.microservice.basket.model.BasketItem;
 import com.sashutosh.microservice.basket.model.CustomerBasket;
-import com.sashutosh.microservice.basket.model.RedisBasketRepository;
 import org.junit.AfterClass;
-import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -33,18 +31,17 @@ public class BasketControllerTest {
     //private static RedisBasketRepository basketRepository;
 
     private static redis.embedded.RedisServer redisServer;
-    private  static Jedis jedis;
 
     @BeforeClass
     public static void startRedisServer() throws IOException {
         redisServer = new redis.embedded.RedisServer(6380);
         redisServer.start();
-        jedis= new Jedis("localhost",6380);
+        Jedis jedis = new Jedis("localhost", 6380);
         //basketRepository = new RedisBasketRepository(jedis);
     }
 
     @AfterClass
-    public static void stopRedisServer() throws IOException {
+    public static void stopRedisServer() {
         redisServer.stop();
     }
 
@@ -56,7 +53,7 @@ public class BasketControllerTest {
     }*/
 
     @Test
-    public void whenSavingBasket_thenAvailableOnRetrieval() throws Exception {
+    public void whenSavingBasket_thenAvailableOnRetrieval() {
         List<BasketItem> basket = new ArrayList<>();
         BasketItem item = new BasketItem();
         item.id ="123";

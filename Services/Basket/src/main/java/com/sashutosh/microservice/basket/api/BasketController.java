@@ -44,8 +44,7 @@ public class BasketController {
 
     @PostMapping("/")
     public CustomerBasket updateBasket(@RequestBody  CustomerBasket basket){
-        CustomerBasket newbasket = basketRepository.update(basket);
-        return newbasket;
+        return basketRepository.update(basket);
     }
 
     @DeleteMapping("/{id}")

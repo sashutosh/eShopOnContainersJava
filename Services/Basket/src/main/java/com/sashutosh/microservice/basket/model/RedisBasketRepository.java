@@ -2,7 +2,6 @@ package com.sashutosh.microservice.basket.model;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import redis.clients.jedis.Jedis;
 
@@ -15,23 +14,18 @@ public class RedisBasketRepository implements IBasketRepository{
     @Autowired
     Jedis redisRepo;
 
-    /*public RedisBasketRepository(Jedis jedis){
-        redisRepo=jedis;
-    }*/
-
     public RedisBasketRepository() {
 
     }
 
-
     @Override
     public CustomerBasket getBasket(String customerId)
     {
+
         ObjectMapper mapper = new ObjectMapper();
         String basketJson= redisRepo.get(customerId);
         try {
-            CustomerBasket basket = mapper.readValue(basketJson,CustomerBasket.class);
-            return basket;
+            return mapper.readValue(basketJson,CustomerBasket.class);
         } catch (IOException e) {
             e.printStackTrace();
             return null;

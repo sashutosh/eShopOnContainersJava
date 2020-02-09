@@ -12,7 +12,7 @@ public class KafkaEventBus implements IEventBus {
     @Autowired
     private KafkaTemplate<String, String> kafkaTemplate;
 
-    ObjectMapper mapper=new ObjectMapper();
+    final ObjectMapper mapper=new ObjectMapper();
 
     @Override
     public void publish(IntegrationEvent event) {
@@ -22,11 +22,10 @@ public class KafkaEventBus implements IEventBus {
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
-
     }
 
     @Override
-    public <T extends IntegrationEvent, TH extends IntegrationEventsHandler> void subscribe(T event)
+    public <T extends IntegrationEvent, TH extends IntegrationEventsHandler<?>> void subscribe(T event)
     {
 
     }

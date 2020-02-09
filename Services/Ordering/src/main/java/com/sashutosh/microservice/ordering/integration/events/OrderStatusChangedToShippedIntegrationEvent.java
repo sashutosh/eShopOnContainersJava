@@ -5,9 +5,9 @@ import com.sashutosh.microservice.ordering.model.OrderStatus;
 
 public class OrderStatusChangedToShippedIntegrationEvent extends IntegrationEvent {
 
-    int orderId;
-    String orderStatus;
-    String buyerName;
+    final int orderId;
+    final String orderStatus;
+    final String buyerName;
 
     public OrderStatusChangedToShippedIntegrationEvent(int id, OrderStatus orderStatusId, String buyerName)
     {

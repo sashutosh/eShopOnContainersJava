@@ -24,6 +24,10 @@ public class Buyer {
         this.paymentMethods = paymentMethods;
     }
 
+    public Buyer(){
+
+    }
+
     public String getIdentityGuid() {
         return identityGuid;
     }

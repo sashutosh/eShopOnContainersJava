@@ -34,7 +34,7 @@ public class OrdersController {
 
             try {
                 UUID cmdRequestID = UUID.fromString(requestId);
-                IdentifiedCommand cmd = new IdentifiedCommand(cancelOrder,cmdRequestID);
+                IdentifiedCommand<CancelOrderCommand, Boolean> cmd = new IdentifiedCommand<>(cancelOrder,cmdRequestID);
                 cmdResult= mediator.send(cmd);
             }
             catch (IllegalArgumentException ex){
@@ -54,7 +54,7 @@ public class OrdersController {
 
             try {
                 UUID cmdRequestID = UUID.fromString(requestId);
-                IdentifiedCommand cmd = new IdentifiedCommand(shipOrderCommand,cmdRequestID);
+                IdentifiedCommand<ShipOrderCommand, Boolean> cmd = new IdentifiedCommand<>(shipOrderCommand,cmdRequestID);
                 cmdResult= mediator.send(cmd);
             }
             catch (IllegalArgumentException ex){
@@ -76,15 +76,13 @@ public class OrdersController {
     @GetMapping("/")
     public List<Order> getOrders()
     {
-        List<Order> order= orderRepository.findAll();
-        return order;
+        return orderRepository.findAll();
     }
 
-    @GetMapping("/{cardtypes}")
+    @GetMapping("/cardtypes")
     public List<CardType> getCardTypes(@PathVariable(value="orderId")int orderId)
     {
-        List<CardType> cardTypes= orderRepository.getCardTypes();
-        return cardTypes;
+        return orderRepository.getCardTypes();
     }
 
     @PostMapping("/draft")

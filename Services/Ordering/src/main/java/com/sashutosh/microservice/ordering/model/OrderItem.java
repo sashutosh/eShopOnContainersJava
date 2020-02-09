@@ -23,6 +23,10 @@ public class OrderItem {
     @JoinColumn(name="id", nullable=false)
     Order order;
 
+    public OrderItem(){
+
+    }
+
     public OrderItem(int itemId, String productName, int units, double unitPrice, float discount, String pictureUrl) {
         this.itemId = itemId;
         this.productName = productName;

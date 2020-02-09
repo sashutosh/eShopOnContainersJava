@@ -4,8 +4,8 @@ import java.util.UUID;
 
 public class IdentifiedCommand<T extends IRequest<R>,R> implements IRequest<R>
 {
-    T command;
-    UUID cmdId;
+    final T command;
+    final UUID cmdId;
 
     public IdentifiedCommand(T command, UUID cmdId)
     {

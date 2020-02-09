@@ -7,15 +7,14 @@ import org.springframework.core.type.filter.RegexPatternTypeFilter;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
-import java.lang.reflect.TypeVariable;
 import java.util.*;
 import java.util.regex.Pattern;
 
 public class IMediator {
 
-    Map<String, Class> commandHandlermap = new HashMap<>();
+    final Map<String, Class<IRequestHandler<IRequest<?>, Object>>> commandHandlermap = new HashMap<>();
 
-    public Map<String, Class> getCommandHandlermap() {
+    public Map<String, Class<IRequestHandler<IRequest<?>, Object>>> getCommandHandlermap() {
         return commandHandlermap;
     }
 
@@ -36,7 +35,7 @@ public class IMediator {
                         Type[] typeArguments= parameterizedType.getActualTypeArguments();
                         for(Type typeargumment:typeArguments){
                             if(typeargumment.getTypeName().contains(commandType)){
-                                commandHandlermap.put(typeargumment.getTypeName(),clazz);
+                                commandHandlermap.put(typeargumment.getTypeName(), (Class<IRequestHandler<IRequest<?>, Object>>) clazz);
                             }
 
                         }
@@ -57,17 +56,15 @@ public class IMediator {
         loadCommandHandlers("com.sashutosh.microservice.ordering.commands","IRequestHandler","Command");
         loadCommandHandlers("com.sashutosh.microservice.ordering.domain","INotificationHandler","DomainEvent");
     }
-    public boolean send(IRequest cmd)
+    public boolean send(IRequest<?> cmd)
     {
 
-        Class requestHandler= commandHandlermap.get(cmd.getClass().getName());
+        Class<IRequestHandler<IRequest<?>, Object>> requestHandler= commandHandlermap.get(cmd.getClass().getName());
         try {
-            IRequestHandler handler = (IRequestHandler) requestHandler.newInstance();
+            IRequestHandler<IRequest<?>, Object> handler = requestHandler.newInstance();
             Object result=handler.handle(cmd);
-            return result!=null?true:false;
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
+            return result != null;
+        } catch (InstantiationException | IllegalAccessException e) {
             e.printStackTrace();
         }
         return false;

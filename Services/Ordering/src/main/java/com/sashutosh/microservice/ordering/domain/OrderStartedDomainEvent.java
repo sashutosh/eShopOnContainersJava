@@ -5,14 +5,14 @@ import com.sashutosh.microservice.ordering.model.Order;
 import java.util.Date;
 
 public class OrderStartedDomainEvent implements INotification{
-    String userId;
-    String userName;
-    int cardTypeId;
-    String cardNumber;
-    String cardSecurityNumber;
-    String cardHolderName;
-    Date cardExpiration;
-    Order order;
+    final String userId;
+    final String userName;
+    final int cardTypeId;
+    final String cardNumber;
+    final String cardSecurityNumber;
+    final String cardHolderName;
+    final Date cardExpiration;
+    final Order order;
 
     public String getUserId() {
         return userId;

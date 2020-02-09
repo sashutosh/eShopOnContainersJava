@@ -44,6 +44,7 @@ public class Order {
     Address address;
 
     @Transient
+    final
     List<INotification> events= new ArrayList<>();
 
     public Order(String userId, String userName, Address address, int cardTypeId, String cardNumber, String cardSecurityNumber, String cardHolderName, Date cardExpiration,
@@ -66,7 +67,6 @@ public class Order {
     }
 
     public Order() {
-        orderItems= new ArrayList();
         isDraft=false;
     }
 

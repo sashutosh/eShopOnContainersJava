@@ -70,8 +70,7 @@ public class BasketItem {
     public static OrderItemDTO toOrderItemDTO(BasketItem item){
 
         int itemId = Integer.parseInt(item.id);
-        OrderItemDTO orderItemDTO = new OrderItemDTO(itemId,item.getProductName(),item.getUnitPrice(),item.getQuantity(),item.getPictureUrl());
-        return orderItemDTO;
+        return new OrderItemDTO(itemId,item.getProductName(),item.getUnitPrice(),item.getQuantity(),item.getPictureUrl());
 
     }
 }

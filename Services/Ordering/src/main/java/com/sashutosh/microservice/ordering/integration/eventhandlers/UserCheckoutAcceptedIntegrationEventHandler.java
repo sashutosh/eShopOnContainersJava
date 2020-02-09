@@ -20,7 +20,7 @@ public class UserCheckoutAcceptedIntegrationEventHandler implements IntegrationE
                     eventMsg.country,eventMsg.zipCode,eventMsg.cardNumber,eventMsg.cardHolderName,
                     eventMsg.cardExpiration,eventMsg.cardSecurityNumber,eventMsg.cardTypeId);
 
-            IdentifiedCommand cmd = new IdentifiedCommand(createOrderCommand,eventMsg.requestId);
+            IdentifiedCommand<CreateOrderCommand, Boolean> cmd = new IdentifiedCommand<>(createOrderCommand,eventMsg.requestId);
             mediator.send(cmd);
         }
 

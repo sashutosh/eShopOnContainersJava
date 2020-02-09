@@ -8,43 +8,43 @@ import java.util.List;
 
 public class CreateOrderCommand implements IRequest<Boolean> {
 
-    List<OrderItemDTO> orderItems;
+    final List<OrderItemDTO> orderItems;
 
 
-    String userId;
+    final String userId;
 
 
-    String userName;
+    final String userName;
 
 
-    String city;
+    final String city;
 
 
-    String street;
+    final String street;
 
 
-    String state;
+    final String state;
 
 
-    String country;
+    final String country;
 
 
-    String zipCode;
+    final String zipCode;
 
 
-    String cardNumber;
+    final String cardNumber;
 
 
-    String cardHolderName;
+    final String cardHolderName;
 
 
-    Date cardExpiration;
+    final Date cardExpiration;
 
 
-    String cardSecurityNumber;
+    final String cardSecurityNumber;
 
 
-    int cardTypeId;
+    final int cardTypeId;
 
     public CreateOrderCommand(List<BasketItem> basketItems, String userId, String userName, String city, String street, String state, String country, String zipcode,
                               String cardNumber, String cardHolderName, Date cardExpiration,

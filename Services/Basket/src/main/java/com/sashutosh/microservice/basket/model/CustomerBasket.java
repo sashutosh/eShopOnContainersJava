@@ -1,9 +1,5 @@
 package com.sashutosh.microservice.basket.model;
 
-import org.springframework.data.redis.core.RedisHash;
-
-import javax.annotation.sql.DataSourceDefinition;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
